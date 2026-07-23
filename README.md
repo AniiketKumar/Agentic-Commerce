@@ -1,11 +1,11 @@
 # Agentic Commerce
 
-A Spring Boot e-commerce backend — products, users, and orders — being built from scratch as a
+A Spring Boot e-commerce backend: products, users, and orders being built from scratch as a
 full production-style application: real database, auth, containerization, CI/CD, and eventually
 agentic AI / GenAI features layered on top once the core platform is solid.
 
 **Status:** actively in development. This is a placeholder README — a full version (architecture
-diagram, deployment guide, API docs) lands once the core backend and frontend are further along.
+diagram, deployment guide, API docs) will be added once the core backend and frontend are further along.
 
 ## Stack (so far)
 
