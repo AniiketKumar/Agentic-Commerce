@@ -1,0 +1,16 @@
+# Postgres for local dev — see docs/STUDY_GUIDE.md for the Docker/Compose write-up
+services:
+  postgres:
+    image: postgres:16
+    container_name: marketplace-postgres
+    environment:
+      POSTGRES_DB: marketplace
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - marketplace-pgdata:/var/lib/postgresql/data
+
+volumes:
+  marketplace-pgdata:

@@ -1,0 +1,55 @@
+### Get all products
+GET http://localhost:8080/products
+
+### Get one product (change the id to one that exists after seeding)
+GET http://localhost:8080/products/1
+
+### Create a valid product -> expect 201
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "name": "Webcam",
+  "description": "1080p webcam",
+  "price": 39.99,
+  "stockQuantity": 15
+}
+
+### Create an invalid product (negative price) -> expect 400
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "name": "Broken Product",
+  "description": "should fail validation",
+  "price": -5,
+  "stockQuantity": 15
+}
+
+### Update a product (change the id) -> expect 200
+PUT http://localhost:8080/products/1
+Content-Type: application/json
+
+{
+  "name": "Webcam Pro",
+  "description": "1080p webcam, updated",
+  "price": 44.99,
+  "stockQuantity": 12
+}
+
+### Update a missing product -> expect 404
+PUT http://localhost:8080/products/999
+Content-Type: application/json
+
+{
+  "name": "Ghost",
+  "description": "doesn't exist",
+  "price": 9.99,
+  "stockQuantity": 1
+}
+
+### Delete a product (change the id) -> expect 204
+DELETE http://localhost:8080/products/2
+
+### Delete a missing product -> expect 404
+DELETE http://localhost:8080/products/999
