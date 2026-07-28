@@ -35,9 +35,9 @@ public class OrderService {
     }
 
     @Transactional
-    public Order createOrder(OrderRequest request){
-        User user = userRepository.findById(request.getUserId())
-                .orElseThrow(()-> new UserNotFoundException(request.getUserId()));
+    public Order createOrder(String username, OrderRequest request){
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(()-> new UserNotFoundException("User not found: " + username));
 
         Order order = new Order();
         order.setUser(user);
@@ -49,7 +49,7 @@ public class OrderService {
                     .orElseThrow(()-> new ProductNotFoundException(itemRequest.getProductId()));
 
             if(product.getStockQuantity() < itemRequest.getQuantity()) {
-                throw new InsufficientStockException("Not enough sotck for product: " + product.getName());
+                throw new InsufficientStockException("Not enough stock for product: " + product.getName());
             }
 
             product.setStockQuantity(product.getStockQuantity() - itemRequest.getQuantity());
