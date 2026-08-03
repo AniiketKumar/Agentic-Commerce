@@ -14,4 +14,17 @@ export async function login(username: string, password: string): Promise<string>
 
     const data = await response.json();
     return data.token;
+}
+
+export async function register(username: string, email:string, password: string):
+Promise<void> {
+    const response = await fetch(`${BASE_URL}/users/register`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({username, email, password }),
+        });
+
+    if(!response.ok){
+        throw new Error("Registration failed. Username or email may already be taken.");
+        }
     }

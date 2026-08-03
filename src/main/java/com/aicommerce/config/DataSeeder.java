@@ -22,8 +22,20 @@ public class DataSeeder implements CommandLineRunner{
         if (productRepository.count() > 0) {
             return;
         }
-        productRepository.save(new Product("Keyboard", "Mechanical keyboard", new BigDecimal("49.99"), 25));
-        productRepository.save(new Product("Monitor", "27 inch 4k display", new BigDecimal("299.99"), 10));
-        productRepository.save(new Product("Mouse", "Wireless Mouse", new BigDecimal("19.99"), 50));
+//        productRepository.save(new Product("Keyboard", "Mechanical keyboard", new BigDecimal("49.99"), 25));
+//        productRepository.save(new Product("Monitor", "27 inch 4k display", new BigDecimal("299.99"), 10));
+//        productRepository.save(new Product("Mouse", "Wireless Mouse", new BigDecimal("19.99"), 50));
+
+        Product keyboard = new Product("Keyboard", "Mechanical keyboard", new BigDecimal("49.99"), 25);
+        keyboard.setImageUrl("https://picsum:photos/seed/keyboard/400/300");
+        productRepository.save(keyboard);
+
+        Product monitor = new Product("Monitor", "27 inch 4k display", new BigDecimal("299.99"), 10);
+        monitor.setImageUrl("https://picsum:photos/seed/monitor/400/300");
+        productRepository.save(monitor);
+
+        Product mouse = new Product("Mouse", "Wireless Mouse", new BigDecimal("19.99"), 50);
+        mouse.setImageUrl("https://picsum:photos/seed/mouse/400/300");
+        productRepository.save(mouse);
     }
 }

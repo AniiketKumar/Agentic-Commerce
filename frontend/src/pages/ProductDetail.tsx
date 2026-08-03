@@ -29,6 +29,7 @@ export default function ProductDetail() {
     return (
         <div>
             <h2>{product.name}</h2>
+            {product.imageUrl && <img src={product.imageUrl} alt={product.name} width={300} />}
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
             <p>In stock: {product.stockQuantity}</p>

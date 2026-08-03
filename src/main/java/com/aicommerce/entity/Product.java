@@ -31,6 +31,8 @@ public class Product{
     @PositiveOrZero
     private Integer stockQuantity;
 
+    private String imageUrl;
+
     public Product() {
 
     }
@@ -76,5 +78,13 @@ public class Product{
 
     public void setStockQuantity(Integer stockQuantity){
         this.stockQuantity = stockQuantity;
+    }
+
+    public String getImageUrl(){
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl){
+        this.imageUrl = imageUrl;
     }
 }

@@ -94,6 +94,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/register", "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
                         .requestMatchers("/products/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/orders").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())

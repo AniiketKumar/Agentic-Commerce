@@ -24,6 +24,7 @@ export default function ProductList() {
             <ul>
                 {products.map((product)=>(
                     <li key={product.id}>
+                        {product.imageUrl && (<img src={product.imageUrl} alt={product.name} width={80}/>)}
                         <Link to={`/products/${product.id}`}>
                             {product.name} - ${product.price}
                         </Link>

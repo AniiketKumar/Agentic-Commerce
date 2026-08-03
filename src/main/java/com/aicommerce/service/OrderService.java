@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -63,5 +64,13 @@ public class OrderService {
 
         order.setTotalAmount(total);
         return orderRepository.save(order);
+    }
+
+    public List<Order> getOrdersForUser(String username){
+        return orderRepository.findByUserUsernameOrderByCreatedAtDesc(username);
+    }
+
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
     }
 }
