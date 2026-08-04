@@ -168,5 +168,35 @@ input:focus-visible {
     color: var(--danger);
 }
 
+. form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: left;
+}
 
+.form input {
+    width: 100%;
+}
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-h);
+}
+
+.auth-form {
+    max-width: 360px;
+    margin: var(--space-4) auto;
+}
+
+.form-actions {
+   display: flex;
+   gap: var(--space-2);
+}

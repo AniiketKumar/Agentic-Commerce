@@ -22,24 +22,45 @@ export default function Login() {
             }
         }
 
-    return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-               <div>
-                  <label>Username</label>
-                  <input value={username} onChange={(e) => setUsername(e.target.value)} />
-               </div>
-               <div>
-                   <label>Password</label>
-                   <input type="password" value = {password} onChange={(e) => setPassword(e.target.value)} />
-               </div>
+//old design
+//     return (
+//         <div>
+//             <h1>Login</h1>
+//             <form onSubmit={handleSubmit}>
+//                <div>
+//                   <label>Username</label>
+//                   <input value={username} onChange={(e) => setUsername(e.target.value)} />
+//                </div>
+//                <div>
+//                    <label>Password</label>
+//                    <input type="password" value = {password} onChange={(e) => setPassword(e.target.value)} />
+//                </div>
+//
+//                {error && <p style ={{ color: "red" }}>{error}</p>}
+//                <button type="submit">Login</button>
+//             </form>
+//             <p>Don't have an account? <Link to="/register">Register</Link></p>
+//         </div>
+//         );
 
-               {error && <p style ={{ color: "red" }}>{error}</p>}
-               <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <Link to="/register">Register</Link></p>
-        </div>
-        );
+        return (
+            <div>
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit} className="form auth-form">
+                    <div className="form-group">
+                        <label>Username</label>
+                        <input value={username} onChange={(e) => setUsername(e.target.value)} />
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+
+                    {error && <p className="error-text">{error}</p>}
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <Link to="/register">Register</Link></p>
+            </div>
+            );
 
     }
