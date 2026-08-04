@@ -17,14 +17,14 @@ export default function AdminOrders() {
             .finally(() => setLoading(false));
         }, [token]);
     if(loading) return <p>Loading...</p>;
-    if(error) return <p style={{ color: "red" }}>{error}</p>
+    if(error) return <p className="error-text">{error}</p>
 
     return (
         <div>
             <h1>All Orders</h1>
             {orders.map((order) => (
-                <div key={order.id} style={{ border: "1px solid #ccc", padding: "1rem", marginBottom: "1rem" }}>
-                <p>Order #{order.id} - {order.status} -by {order.user.username}</p>
+                <div key={order.id} className="card">
+                <p>Order #{order.id} - <span classname={`status-badge status-${order.status.toLowerCase()}`}>{order.status.toLowerCase()}</span> -by {order.user.username}</p>
                 <p>Placed: {new Date(order.createdAt).toLocaleString()}</p>
                 <ul>
                     {order.items.map((item) => (

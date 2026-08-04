@@ -18,15 +18,15 @@ export default function MyOrders() {
         }, [token]);
 
     if(loading) return <p>Loading...</p>;
-    if(error) return <p style={{ color: "red" }}>{error}</p>;
+    if(error) return <p className="error-text">{error}</p>;
     if(orders.length === 0) return <p>You haven't placed any orders yet. </p>;
 
     return (
         <div>
             <h1>My Orders</h1>
             {orders.map((order) => (
-                <div key={order.id} style={{ border: "1px solid #ccc", padding: "1rem", marginBottom: "1rem"}}>
-                    <p>Order #{order.id} - {order.status}</p>
+                <div key={order.id} className="card">
+                    <p>Order #{order.id} - <span className={`status-badge status-${order.status.toLowerCase()}`}>{order.status.toLowerCase()}</span></p>
                     <p>Placed: {new Date(order.createdAt).toLocaleString()}</p>
                     <ul>
                         {order.items.map((item) => (

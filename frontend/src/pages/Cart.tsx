@@ -40,17 +40,19 @@ export default function Cart() {
     return (
         <div>
             <h1>Cart</h1>
-            <ul>
+            <ul className="cart-list">
              {items.map((item) => (
-                 <li key={item.product.id}>
-                    {item.product.name} - qty {item.quantity} - $
-                    {(item.product.price * item.quantity).toFixed(2)}
+                 <li key={item.product.id} className="card card-item">
+                     <div>
+                         <p className="card-item-name">{item.product.name}</p>
+                         <p className="card-item-meta">qty {item.quantity} : ${(item.product.price * item.quantity).toFixed(2)}</p>
+                     </div>
                     <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
                  </li>
                  ))}
              </ul>
-             <p>Total: ${total.toFixed(2)}</p>
-             {error && <p style={{color: "red" }}>{error}</p>}
+             <p className="cart-total">Total: ${total.toFixed(2)}</p>
+             {error && <p className="error-text">{error}</p>}
              <button onClick={handlePlaceOrder} disabled={placing}>
                  {placing ? "placing order..." : "Place Order"}
              </button>

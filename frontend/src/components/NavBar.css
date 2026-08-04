@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-4);
+}
+
+.navbar-links {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+}
+
+.navbar-links a {
+    color: var(--text-h);
+    font-weight: 500;
+}
+
+.navbar-auth {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logout {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.navbar-logout:hover {
+    background: var(--danger-bg);
+    border-color: var(--danger);
+    color: var(--danger);
+}

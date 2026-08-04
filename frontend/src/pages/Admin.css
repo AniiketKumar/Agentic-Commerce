@@ -1,0 +1,27 @@
+.admin-product-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-4);
+}
+
+.admin-product-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-product-name {
+    font-weight: 600;
+    color: var(--text-h);
+    margin: 0;
+}
+
+.admin-product-meta {
+    color: var(--text);
+    margin: 0;
+}
+
+.admin-product-actions {
+    display: flex;
+    gap: var(--space-2);
+}

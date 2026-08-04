@@ -3,6 +3,8 @@ import type { Product } from "../types/Product";
 import { fetchProducts, createProduct, updateProduct, deleteProduct } from "../api/productApi";
 import { useAuth } from "../context/AuthContext";
 
+import "./Admin.css";
+
 export default function Admin() {
     const[products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
@@ -86,7 +88,7 @@ if(loading) return <p>Loading...</p>;
 return (
     <div>
         <h1>Admin - Products</h1>
-        {error && <p style={{ color: "red"}}> {error}</p>}
+        {error && <p className="error-text">{error}</p>}
 
         <form onSubmit={handleSubmit}>
             <h2>{editingId === null ? "Add Product" : `Editing Product #${editingId}`}</h2>
@@ -117,14 +119,18 @@ return (
 
         <hr />
 
-        <ul>
+        <ul className="admin-product-list">
             {products.map((product) => (
-                <li key={product.id}>
-                    {product.name} - ${product.price} - stock: {product.stockQuantity}
-                    {" "}
-                    <button onClick={() => startEdit(product)}>Edit</button>
-                    {" "}
-                    <button onClick={() => handleDelete(product.id)}>Delete</button>
+                <li key={product.id} className="card admin-product-row">
+                    <div>
+                        <p className="admin-product-name">{product.name}</p>
+                        <p className="admin-product-meta">${product.price} . stock: {product.stockQuantity}</p>
+                    </div>
+                    <div className="admin-product-actions">
+                        <button onClick={() => startEdit(product)}>Edit</button>
+                        <button className="btn-danger" onClick={() =>
+                            handleDelete(product.id)}>Delete</button>
+                    </div>
                 </li>
                 ))}
         </ul>
